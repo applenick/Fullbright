@@ -1,11 +1,10 @@
 package com.applenick.Fullbright;
 
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 import com.applenick.Fullbright.utils.Alog;
 import com.applenick.Fullbright.utils.PotionUtil;
@@ -33,15 +32,12 @@ public class FullbrightListener implements Listener {
 	}
 	
 	@EventHandler
-	public void onDeath(PlayerDeathEvent deathEvent){
-			Player p = deathEvent.getEntity();
+	public void onDeath(PlayerRespawnEvent respawnEvent){
+			Player p = respawnEvent.getPlayer();
 			boolean active = FullbrightSaveManager.isActivated(p);
 			
 			if(active){
 				PotionUtil.applyNightVison(p);
-				Alog.console("Debug Death - Working");
-			}else{
-				PotionUtil.removeNightVision(p);
 			}
 		
 	}
