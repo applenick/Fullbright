@@ -41,7 +41,7 @@ public class Fullbright extends JavaPlugin {
 	public void setup(){
 		Alog.console(Alog.dashedChatMessage(ChatColor.AQUA + "FullBright", "#", ChatColor.YELLOW));
 		Alog.console(ChatColor.GOLD +"A Plugin Created by " + ChatColor.DARK_RED +"AppleNick");
-		Alog.console(ChatColor.GRAY + "View more of my Project at " + ChatColor.BLUE + "http://applenick.com");
+		Alog.console(ChatColor.GRAY + "View more of my Projects at " + ChatColor.BLUE + "http://applenick.com");
 		PluginManager PM = this.getServer().getPluginManager();
 		PM.registerEvents(new FullbrightListener(), this);
 		setupCommands();
