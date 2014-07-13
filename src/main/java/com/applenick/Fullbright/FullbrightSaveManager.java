@@ -10,7 +10,7 @@ public class FullbrightSaveManager {
 	
 	public static boolean isActivated(Player p){
 		String uuid = p.getUniqueId().toString();
-		if(Fullbright.get().getConfig().getBoolean("user." + uuid) != false){
+		if(Fullbright.get().getConfig().getBoolean(uuid) != false){
 			return true;
 		} else{
 			return false;
@@ -20,7 +20,7 @@ public class FullbrightSaveManager {
 	
 	public static void saveSetting(Player p , boolean active){
 		String uuid = p.getUniqueId().toString();
-		Fullbright.get().getConfig().set("user." + uuid, active);
+		Fullbright.get().getConfig().set(uuid, active);
 	}
 	
 	

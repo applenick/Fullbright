@@ -19,7 +19,7 @@ public class FullbrightListener implements Listener {
 		Player p = joinEvent.getPlayer();
 		String uuid = p.getUniqueId().toString();
 		if(!(p.hasPlayedBefore())){
-			Fullbright.get().getConfig().addDefault("user." + uuid, false);
+			Fullbright.get().getConfig().addDefault(uuid, false);
 			Alog.console(ChatColor.GREEN + p.getName() + "has beedn added to the Fullbright SaveList");
 		}
 		else if(FullbrightSaveManager.isActivated(p)){

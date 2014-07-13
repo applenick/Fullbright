@@ -1,7 +1,6 @@
 package com.applenick.Fullbright.utils;
 
 import org.bukkit.ChatColor;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.util.ChatPaginator;
 
 import com.applenick.Fullbright.Fullbright;
@@ -10,8 +9,7 @@ import com.google.common.base.Strings;
 public class Alog {
 		
 	public static void console(String msg){
-		ConsoleCommandSender CS = Fullbright.get().getServer().getConsoleSender();
-		CS.sendMessage(msg);
+		Fullbright.get().getServer().getConsoleSender().sendMessage(msg);
 	}
 	
 	public static String dashedChatMessage(String message, String c, ChatColor color) {

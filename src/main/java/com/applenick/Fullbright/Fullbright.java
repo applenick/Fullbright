@@ -39,11 +39,12 @@ public class Fullbright extends JavaPlugin {
 	}
 	
 	public void setup(){
-		setupCommands();
-		
+		Alog.dashedChatMessage(ChatColor.AQUA + "FullBright", "#", ChatColor.YELLOW);
 		PluginManager PM = this.getServer().getPluginManager();
 		PM.registerEvents(new FullbrightListener(), this);
-		Alog.console("&aFullbright Listeners have been Registered");
+		setupCommands();
+		Alog.console(ChatColor.GREEN + "Fullbright Listeners have been Registered");
+		Alog.console(ChatColor.GOLD + "Fullbright has been setup.");
 	}
 	
 	 private CommandsManager<CommandSender> commands;
@@ -57,7 +58,7 @@ public class Fullbright extends JavaPlugin {
 
 	        CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
 	        cmdRegister.register(FullbrightCommand.class);
-	        Alog.console("&aFullbright Commands have been setup.");
+	        Alog.console(ChatColor.GREEN + "Fullbright Commands have been setup.");
 	    }
 
 	    @Override
