@@ -19,6 +19,8 @@ import com.sk89q.minecraft.util.commands.WrappedCommandException;
 
 public class Fullbright extends JavaPlugin {
 	
+	public static String prefix = ChatColor.WHITE + "[" + ChatColor.GREEN + "Fullbright" + ChatColor.WHITE + "]";
+	
 	
 	private static Fullbright fullbright = null;
 	public static Fullbright get(){
@@ -29,6 +31,11 @@ public class Fullbright extends JavaPlugin {
 	public void onEnable(){
 		fullbright = this;
 		
+		this.getConfig().options().copyDefaults(true);
+		this.saveConfig();
+		this.reloadConfig();
+		
+		setup();
 	}
 	
 	public void setup(){
@@ -38,7 +45,6 @@ public class Fullbright extends JavaPlugin {
 		PM.registerEvents(new FullbrightListener(), this);
 		Alog.console("&aFullbright Listeners have been Registered");
 	}
-	
 	
 	 private CommandsManager<CommandSender> commands;
 
