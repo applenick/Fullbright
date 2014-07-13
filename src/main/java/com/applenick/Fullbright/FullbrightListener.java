@@ -34,13 +34,15 @@ public class FullbrightListener implements Listener {
 	
 	@EventHandler
 	public void onDeath(PlayerDeathEvent deathEvent){
-		if(deathEvent.getEntityType() == EntityType.PLAYER){
 			Player p = deathEvent.getEntity();
+			boolean active = FullbrightSaveManager.isActivated(p);
 			
-			if(FullbrightSaveManager.isActivated(p)){
+			if(active){
 				PotionUtil.applyNightVison(p);
+				Alog.console("Debug Death - Working");
+			}else{
+				PotionUtil.removeNightVision(p);
 			}
-		}
 		
 	}
 	
