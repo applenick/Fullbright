@@ -21,6 +21,7 @@ public class FullbrightSaveManager {
 	public static void saveSetting(Player p , boolean active){
 		String uuid = p.getUniqueId().toString();
 		Fullbright.get().getConfig().set(uuid, active);
+		Fullbright.get().saveConfig();
 	}
 	
 	

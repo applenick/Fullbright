@@ -22,7 +22,9 @@ public class FullbrightCommand {
 	public static void fullBCMD(final CommandContext args, final CommandSender sender) throws CommandException {
 		if(!(sender instanceof Player)){
 			Alog.console(ChatColor.RED + "Fullbright is only for players");
+			return;
 		}
+		
 		Player p = (Player) sender;
 		FullbrightSaveManager.toggleCommand(p);
 	}

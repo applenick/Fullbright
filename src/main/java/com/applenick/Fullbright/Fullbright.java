@@ -19,7 +19,7 @@ import com.sk89q.minecraft.util.commands.WrappedCommandException;
 
 public class Fullbright extends JavaPlugin {
 	
-	public static String prefix = ChatColor.WHITE + "[" + ChatColor.AQUA + "Fullbright" + ChatColor.WHITE + "]";
+	public static String prefix = ChatColor.WHITE + "[" + ChatColor.AQUA + "Fullbright" + ChatColor.WHITE + "] ";
 	
 	
 	private static Fullbright fullbright = null;
