@@ -15,7 +15,7 @@ public class FullbrightCommand {
 		
 	@Command(
 			aliases = {"fullbright" , "fb"},
-			desc = "Activated Fullbright Command",
+			desc = "Activates Fullbright Command",
 			max = 0
 			)
 	@CommandPermissions("fullbright.use")
