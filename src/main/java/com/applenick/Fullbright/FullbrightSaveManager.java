@@ -28,14 +28,14 @@ public class FullbrightSaveManager {
 		boolean active = isActivated(p);
 		if(active){
 			PotionUtil.removeNightVision(p);
-			p.sendMessage(Fullbright.prefix + ChatColor.DARK_GREEN + "Fullbright has been" + ChatColor.RED + "disabled");
+			p.sendMessage(Fullbright.prefix + ChatColor.DARK_AQUA + "Fullbright has been" + ChatColor.RED + " disabled");
 			p.playSound(p.getLocation(), Sound.BLAZE_DEATH, 2, 2);
 			saveSetting(p , false);
 		}
 		
 		else{
 			PotionUtil.applyNightVison(p);
-			p.sendMessage(Fullbright.prefix + ChatColor.DARK_GREEN + "Fullbright has been" + ChatColor.GREEN + "activated");
+			p.sendMessage(Fullbright.prefix + ChatColor.DARK_AQUA + "Fullbright has been" + ChatColor.GREEN + " activated");
 			p.playSound(p.getLocation(), Sound.ITEM_BREAK, 2, 2);
 			saveSetting(p , true);
 		}
