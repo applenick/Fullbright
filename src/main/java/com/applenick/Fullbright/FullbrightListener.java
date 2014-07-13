@@ -37,13 +37,16 @@ public class FullbrightListener implements Listener {
 	
 	@EventHandler
 	public void onConsume(PlayerItemConsumeEvent eat){
-		Player p = eat.getPlayer();
+		final Player p = eat.getPlayer();
 		boolean active = FullbrightSaveManager.isActivated(p);
 		if(eat.getItem().equals(new ItemStack(Material.MILK_BUCKET))){
 			if(active){
-				PotionUtil.applyNightVison(p);
+				new BukkitRunnable(){
+					@Override public void run(){
+						PotionUtil.applyNightVison(p);
+					}
+				}.runTaskLater(Fullbright.get(), 2L);			
 			}
-			
 		}
 	}
 	

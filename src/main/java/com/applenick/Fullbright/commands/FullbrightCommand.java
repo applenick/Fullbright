@@ -18,7 +18,7 @@ public class FullbrightCommand {
 			desc = "Activated Fullbright Command",
 			max = 0
 			)
-	@CommandPermissions("ice.fullbright")
+	@CommandPermissions("fullbright.use")
 	public static void fullBCMD(final CommandContext args, final CommandSender sender) throws CommandException {
 		if(!(sender instanceof Player)){
 			Alog.console(ChatColor.RED + "Fullbright is only for players");
