@@ -26,13 +26,11 @@ public class FullbrightListener implements Listener {
 			Fullbright.get().saveConfig();
 			Alog.console(ChatColor.GREEN + p.getName() + "has beed added to the Fullbright SaveList");
 		}
-		else if(FullbrightSaveManager.isActivated(p)){
+		
+		if(FullbrightSaveManager.isActivated(p)){
 			PotionUtil.applyNightVison(p);
 		}
 		
-		else{
-			return;
-		}
 	}
 	
 	@EventHandler
