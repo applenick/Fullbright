@@ -87,5 +87,4 @@ public class Fullbright extends JavaPlugin {
 
 	        return true;
 	    }
-
 }
