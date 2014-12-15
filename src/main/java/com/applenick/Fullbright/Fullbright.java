@@ -37,7 +37,7 @@ public class Fullbright extends JavaPlugin {
 	public void onEnable(){
 		fullbright = this;
 
-		AppleUtils.header(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
+		AppleUtils.console(AppleUtils.header(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-"));
 		
 		this.saveDefaultConfig();
 		
@@ -46,7 +46,7 @@ public class Fullbright extends JavaPlugin {
 		this.setupCommands();
 		this.registerEvents();
 		
-		AppleUtils.footer(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
+		AppleUtils.console(AppleUtils.footer(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-"));
 	}
 
 	@Override
