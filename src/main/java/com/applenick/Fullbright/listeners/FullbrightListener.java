@@ -1,11 +1,12 @@
 package com.applenick.Fullbright.listeners;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -50,12 +51,18 @@ public class FullbrightListener implements Listener {
 	}
 
 	@EventHandler
-	public void onRespawn(PlayerRespawnEvent event){
-		if(Fullbright.get().getManager().isActive(event.getPlayer())){
-			PotionUtil.applyNightVison(event.getPlayer());
+	public void onRespawn(PlayerDeathEvent event){
+		final Player player = (Player) event.getEntity();
+		if(Fullbright.get().getManager().isActive(player)){
+				new BukkitRunnable(){
+					@Override public void run(){
+						PotionUtil.applyNightVison(player);
+					}
+				}.runTaskLater(Fullbright.get(), 5L);
 		}else{
 			return;
 		}
+		
 	}
 
 }
