@@ -1,6 +1,5 @@
 package com.applenick.Fullbright.listeners;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.applenick.Fullbright.Fullbright;
 import com.applenick.Fullbright.SaveManager;
-import com.applenick.Fullbright.utils.AppleUtils;
 import com.applenick.Fullbright.utils.PotionUtil;
 
 public class FullbrightListener implements Listener {
@@ -58,7 +56,6 @@ public class FullbrightListener implements Listener {
 		if(Fullbright.get().getManager().isActive(player)){
 				new BukkitRunnable(){
 					@Override public void run(){
-						AppleUtils.console(ChatColor.RED + "" + Fullbright.get().getManager().isActive(player));
 						PotionUtil.applyNightVison(player);
 					}
 				}.runTaskLater(Fullbright.get(), 4L);
