@@ -1,45 +1,34 @@
 package com.applenick.Fullbright;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.entity.Player;
+import java.util.UUID;
 
-import com.applenick.Fullbright.utils.PotionUtil;
 
 public class SaveManager {
 	
-	public static boolean isActivated(Player p){
-		String uuid = p.getUniqueId().toString();
-		if(Fullbright.get().getConfig().getBoolean(uuid)){
-			return true;
-		} else{
-			return false;
-		}
-	}
 	
-	
-	public static void saveSetting(Player p , boolean active){
-		String uuid = p.getUniqueId().toString();
-		Fullbright.get().getConfig().set(uuid, active);
+	public static void addPlayer(UUID uuid){
+		Fullbright.get().getConfig().addDefault(uuid.toString(), false);
 		Fullbright.get().saveConfig();
 	}
 	
+	public static void updatePlayer(UUID uuid, boolean setting){
+		Fullbright.get().getConfig().addDefault(uuid.toString(), setting);
+		Fullbright.get().saveConfig();
+	}
 	
-	public static void toggleCommand(Player p){
-		boolean active = isActivated(p);
-		if(active){
-			PotionUtil.removeNightVision(p);
-			p.sendMessage(Fullbright.prefix + ChatColor.DARK_AQUA + "Fullbright has been" + ChatColor.RED + " disabled");
-			p.playSound(p.getLocation(), Sound.BLAZE_DEATH, 2, 2);
-			saveSetting(p , false);
-		}
-		
-		else{
-			PotionUtil.applyNightVison(p);
-			p.sendMessage(Fullbright.prefix + ChatColor.DARK_AQUA + "Fullbright has been" + ChatColor.GREEN + " activated");
-			p.playSound(p.getLocation(), Sound.ITEM_BREAK, 2, 2);
-			saveSetting(p , true);
+	public static boolean getSavedSetting(String uuidString){
+		return Fullbright.get().getConfig().getBoolean(uuidString);
+	}
+	
+	public static boolean hasSetting(String uuidString){
+		if(Fullbright.get().getConfig().contains(uuidString)){
+			return true;
+		}else{
+			return false;
 		}
 	}
+
+	
+	
 
 }

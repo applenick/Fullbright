@@ -39,9 +39,7 @@ public class Fullbright extends JavaPlugin {
 
 		AppleUtils.header(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
 		
-		this.getConfig().options().copyDefaults(true);
-		this.saveConfig();
-		this.reloadConfig();
+		this.saveDefaultConfig();
 		
 		this.bmanager = new BrightnessManager();
 		

@@ -3,7 +3,7 @@ package com.applenick.Fullbright.commands;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.applenick.Fullbright.SaveManager;
+import com.applenick.Fullbright.Fullbright;
 import com.applenick.Fullbright.utils.AppleUtils;
 import com.sk89q.minecraft.util.commands.ChatColor;
 import com.sk89q.minecraft.util.commands.Command;
@@ -24,7 +24,7 @@ public class FullbrightCommand {
 			AppleUtils.console(ChatColor.RED + "Fullbright is only for players");
 			return;
 		}
-		Player p = (Player) sender;
-		SaveManager.toggleCommand(p);
+		Player player = (Player) sender;
+		Fullbright.get().getManager().toggleBrightness(player);
 	}
 }
