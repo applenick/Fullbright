@@ -47,7 +47,7 @@ public class BrightnessManager {
 	}
 	
 	public boolean isActive(Player player) {
-		if(players.get(player.getUniqueId()).booleanValue()){
+		if(players.get(player.getUniqueId())){
 			return true;
 		}
 		else{
