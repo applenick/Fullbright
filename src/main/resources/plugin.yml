@@ -1,5 +1,5 @@
 name: Fullbright
 main: com.applenick.Fullbright.Fullbright
-version: 1.1
-description: Fullbright is an Open Source plugin we created to allow players to see have full brightness anywhere. You can view the plugin at https://github.com/Ice-Stone/Fullbright
+version: ${project.version}-${git.commit.id.abbrev}
+description: You can view the plugin at https://github.com/applenick/Fullbright
 author: AppleNick

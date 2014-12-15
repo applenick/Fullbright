@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import com.applenick.Fullbright.utils.PotionUtil;
 
-public class FullbrightSaveManager {
+public class SaveManager {
 	
 	public static boolean isActivated(Player p){
 		String uuid = p.getUniqueId().toString();

@@ -7,8 +7,10 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.applenick.Fullbright.brightness.BrightnessManager;
 import com.applenick.Fullbright.commands.FullbrightCommand;
-import com.applenick.Fullbright.utils.Alog;
+import com.applenick.Fullbright.listeners.FullbrightListener;
+import com.applenick.Fullbright.utils.AppleUtils;
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.CommandException;
 import com.sk89q.minecraft.util.commands.CommandPermissionsException;
@@ -21,34 +23,46 @@ public class Fullbright extends JavaPlugin {
 
 	public static String prefix = ChatColor.WHITE + "[" + ChatColor.AQUA + "Fullbright" + ChatColor.WHITE + "] ";
 
-
 	private static Fullbright fullbright = null;
 	public static Fullbright get(){
 		return fullbright;
 	}
+	
+	private BrightnessManager bmanager = null;
+	public BrightnessManager getManager(){
+		return bmanager;
+	}
 
-
+	@Override
 	public void onEnable(){
 		fullbright = this;
 
+		AppleUtils.header(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
+		
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
 		this.reloadConfig();
-
-		setup();
+		
+		this.bmanager = new BrightnessManager();
+		
+		this.setupCommands();
+		this.registerEvents();
+		
+		AppleUtils.footer(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
 	}
 
-	public void setup(){
-		Alog.console(Alog.dashedChatMessage(ChatColor.AQUA + "FullBright", "#", ChatColor.YELLOW));
-		Alog.console(ChatColor.GOLD +"A Plugin Created by " + ChatColor.DARK_RED +"AppleNick");
-		Alog.console(ChatColor.GRAY + "View more of my Projects at " + ChatColor.BLUE + "http://applenick.com");
+	@Override
+	public void onDisable(){
+		this.saveConfig();
+		AppleUtils.header(ChatColor.GREEN + "Fullbright has been disabled.", ChatColor.GOLD + "-");
+	}
+	
+	private void registerEvents(){
 		PluginManager PM = this.getServer().getPluginManager();
 		PM.registerEvents(new FullbrightListener(), this);
-		setupCommands();
-		Alog.console(ChatColor.GREEN + "Fullbright Listeners have been Registered");
-		Alog.console(ChatColor.GOLD + "Fullbright has been setup.");
+		AppleUtils.console(ChatColor.GREEN + "Events have been setup.");
 	}
-
+	
 	private CommandsManager<CommandSender> commands;
 
 	private void setupCommands() {
@@ -60,7 +74,7 @@ public class Fullbright extends JavaPlugin {
 
 		CommandsManagerRegistration cmdRegister = new CommandsManagerRegistration(this, this.commands);
 		cmdRegister.register(FullbrightCommand.class);
-		Alog.console(ChatColor.GREEN + "Fullbright Commands have been setup.");
+		AppleUtils.console(ChatColor.GREEN + "Commands have been setup.");
 	}
 
 	@Override
