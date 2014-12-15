@@ -12,7 +12,7 @@ public class SaveManager {
 	}
 	
 	public static void updatePlayer(UUID uuid, boolean setting){
-		Fullbright.get().getConfig().addDefault(uuid.toString(), setting);
+		Fullbright.get().getConfig().set(uuid.toString(), setting);
 		Fullbright.get().saveConfig();
 	}
 	

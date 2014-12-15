@@ -23,7 +23,7 @@ public class BrightnessManager {
 	private HashMap<UUID,Boolean> players;
 	
 	public BrightnessManager(){
-		this.players = Maps.newHashMap();
+		this.players = new HashMap<UUID,Boolean>();
 	}
 	
 	public HashMap<UUID,Boolean> getPlayers(){
@@ -47,7 +47,7 @@ public class BrightnessManager {
 	}
 	
 	public boolean isActive(Player player) {
-		if(players.get(player.getUniqueId())){
+		if(players.get(player.getUniqueId()).booleanValue()){
 			return true;
 		}
 		else{
