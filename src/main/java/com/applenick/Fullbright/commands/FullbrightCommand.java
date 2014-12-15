@@ -19,7 +19,7 @@ public class FullbrightCommand {
 			max = 0
 			)
 	@CommandPermissions("fullbright.use")
-	public static void fullBCMD(final CommandContext args, final CommandSender sender) throws CommandException {
+	public static void fullbrightCommand(final CommandContext args, final CommandSender sender) throws CommandException {
 		if(!(sender instanceof Player)){
 			AppleUtils.console(ChatColor.RED + "Fullbright is only for players");
 			return;
