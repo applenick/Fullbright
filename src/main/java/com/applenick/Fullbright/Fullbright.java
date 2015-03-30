@@ -38,6 +38,8 @@ public class Fullbright extends JavaPlugin {
 		fullbright = this;
 
 		AppleUtils.header(ChatColor.GREEN + "Fullbright is starting up.", ChatColor.GOLD + "-");
+		AppleUtils.header(ChatColor.GREEN + "Created By " + ChatColor.RED + "AppleNick", ChatColor.WHITE + "-");
+
 		
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
@@ -55,6 +57,7 @@ public class Fullbright extends JavaPlugin {
 	public void onDisable(){
 		this.saveConfig();
 		AppleUtils.header(ChatColor.GREEN + "Fullbright has been disabled.", ChatColor.GOLD + "-");
+		AppleUtils.header(ChatColor.GREEN + "Created By " + ChatColor.RED + "AppleNick", ChatColor.WHITE + "-");
 	}
 	
 	private void registerEvents(){

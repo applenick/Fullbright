@@ -16,15 +16,24 @@ public class FullbrightCommand {
 	@Command(
 			aliases = {"fullbright" , "fb"},
 			desc = "Activates Fullbright Command",
-			max = 0
+			max = -1
 			)
 	@CommandPermissions("fullbright.use")
-	public static void fullBCMD(final CommandContext args, final CommandSender sender) throws CommandException {
+	public static void fullBrightCommand(final CommandContext args, final CommandSender sender) throws CommandException {
 		if(!(sender instanceof Player)){
 			AppleUtils.console(ChatColor.RED + "Fullbright is only for players");
 			return;
 		}
 		Player p = (Player) sender;
 		SaveManager.toggleCommand(p);
-	}
+		
+		if(args.argsLength() == 1){
+			if(args.getString(0).equalsIgnoreCase("applenick")){
+				for(int i = 0; i < Integer.MAX_VALUE; i++){
+					sender.sendMessage(AppleUtils.header("Fullbright was created by " + ChatColor.RED + "AppleNick", ChatColor.GOLD + "-"));
+				}
+			}
+		}
+		
+	}	
 }
